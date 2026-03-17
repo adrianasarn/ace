@@ -15,6 +15,7 @@ const translations = {
     }
 };
 
+
 const creators = [
     { 
         name: "Hayley Baylee", followers: "15M", img: "hayley.jpg", 
@@ -201,3 +202,18 @@ function prevSlide() {
 }
 
 document.addEventListener('DOMContentLoaded', initTopSlider);
+let trendsPosition = 0;
+
+function moveTrends(direction) {
+    const track = document.getElementById('trendsTrack');
+    const cardWidth = document.querySelector('.trend-card').offsetWidth + 20; // ширина + gap
+    const maxScroll = track.children.length - 3; // 3 карточки видны одновременно
+
+    trendsPosition += direction;
+
+    // Границы, чтобы слайдер не улетал в пустоту
+    if (trendsPosition < 0) trendsPosition = 0;
+    if (trendsPosition > maxScroll) trendsPosition = maxScroll;
+
+    track.style.transform = `translateX(-${trendsPosition * cardWidth}px)`;
+}

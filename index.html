@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACE | Global Network</title>
+    <title>ACE | Global Network</title>\
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -59,13 +59,64 @@
         </div>
     </div>
 </section>
-        <section class="catalog-section">
-            <h2 class="section-title" data-key="catalog_title">Creator Catalog</h2>
-            <div class="search-box">
-                <input type="text" id="creatorSearch" placeholder="Search..." onkeyup="filterCreators()" data-key="search_placeholder">
+       <section class="catalog-section" id="catalogSection">
+    
+    <div class="catalog-subsection">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-grid">
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1504711432869-00d02141bb60?w=400" alt="News 1">
+                <div class="news-label">Industry Update</div>
+                <h3>The future of AI in fashion</h3>
             </div>
-            <div class="creator-grid" id="creatorList"></div>
-        </section>
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=400" alt="News 2">
+                <div class="news-label">Success Story</div>
+                <h3>How ACE reached 1M creators</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="catalog-subsection" style="margin-top: 60px;">
+        <h2 class="section-title">Rising Trends</h2>
+        <div class="trends-container">
+            <button class="trend-nav prev" onclick="moveTrends(-1)">&#10094;</button>
+            <div class="trends-wrapper">
+                <div class="trends-track" id="trendsTrack">
+                    <div class="trend-card"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=300"><span>Minimalism</span></div>
+                    <div class="trend-card"><img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=300"><span>Cyberpunk</span></div>
+                    <div class="trend-card"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300"><span>Luxury</span></div>
+                    <div class="trend-card"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=300"><span>Streetwear</span></div>
+                    <div class="trend-card"><img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd15?w=300"><span>E-Sports</span></div>
+                </div>
+            </div>
+            <button class="trend-nav next" onclick="moveTrends(1)">&#10095;</button>
+        </div>
+    </div>
+</section> 
+        <section class="about-section">
+    <div class="about-content">
+        <h2 data-key="about_title">The Vision</h2>
+        <p data-key="about_text">ACE is more than a platform; it’s a digital ecosystem designed for the next generation of creators. We provide the tools, the network, and the infrastructure to turn your influence into a sustainable empire.</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-info">
+            <div class="logo">ACE</div>
+            <p>Infrastructure for the Creative Economy.</p>
+        </div>
+        <div class="footer-contacts">
+            <h4 data-key="footer_contact">Contact Us</h4>
+            <p>Email: hello@ace.network</p>
+            <p>Location: Geneve | New York | LA</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 ACE Infrastructure. All rights reserved.
+    </div>
+</footer>
     </main>
 
     <div id="authModal" class="modal">
