@@ -2,14 +2,14 @@ const translations = {
     'en': {
         'nav_platform': 'Platform', 'nav_catalog': 'Catalog',
         'hero_title': 'Infrastructure for the <br><em>Creative Economy</em>',
-        'hero_subtitle': 'The foundation for your digital empire.',
+        'hero_subtitle': 'Scale. Monetize. Connect. Your professional backstage pass.',
         'join_btn': 'Join the Network', 'catalog_title': 'Creator Catalog',
         'search_placeholder': 'Search...', 'auth_title': 'Welcome to ACE', 'login_btn': 'Login'
     },
     'ru': {
         'nav_platform': 'Платформа', 'nav_catalog': 'Каталог',
         'hero_title': 'Инфраструктура для <br><em>Экономики Креаторов</em>',
-        'hero_subtitle': 'Фундамент вашей цифровой империи.',
+        'hero_subtitle': 'Масштабируй. Монетизируй. Связывайся. Твой профессиональный backstage-пасс.',
         'join_btn': 'Присоединиться', 'catalog_title': 'Каталог Креаторов',
         'search_placeholder': 'Поиск...', 'auth_title': 'Добро пожаловать', 'login_btn': 'Войти'
     }
