@@ -265,6 +265,40 @@ body { background-color: var(--bg); color: var(--dark); font-family: var(--font-
 .trend-nav.prev { left: -20px; }
 .trend-nav.next { right: -20px; }
 .trend-nav:hover { background: var(--dark); color: #fff; }
+/* Шапка каталога */
+.catalog-header { text-align: center; margin-bottom: 40px; }
+.search-container { margin: 20px auto; max-width: 500px; }
+#creatorSearch { 
+    width: 100%; padding: 15px 25px; border-radius: 30px; 
+    border: 1px solid #eee; background: #fdfdfd; font-family: var(--font-sans);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02); outline: none; transition: 0.3s;
+}
+#creatorSearch:focus { border-color: var(--accent); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+
+/* Кнопки фильтров */
+.industry-filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.filter-btn { 
+    padding: 8px 20px; border-radius: 20px; border: 1px solid #eee; 
+    background: white; cursor: pointer; font-size: 0.8rem; transition: 0.3s;
+}
+.filter-btn.active { background: var(--dark); color: white; border-color: var(--dark); }
+
+/* Сетка карточек */
+.creator-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; padding: 20px 0; 
+}
+.card { 
+    background: #fff; border-radius: 25px; padding: 20px; 
+    transition: 0.4s; border: 1px solid #f5f5f5; position: relative;
+}
+.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+.card-tag { 
+    position: absolute; top: 20px; right: 20px; background: var(--bg); 
+    padding: 4px 10px; border-radius: 10px; font-size: 0.6rem; font-weight: bold; 
+}
+
 
 /* Адаптивность для телефонов */
 @media (max-width: 768px) {

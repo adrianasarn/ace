@@ -34,6 +34,41 @@
         </div>
     </header>
 
+<main id="mainContent">
+    <div id="homeSection">
+        <section class="hero">
+            <h1 data-key="hero_title">Infrastructure for the <br><em>Creative Economy</em></h1>
+            <p data-key="hero_subtitle">The foundation for your digital empire. Scale, monetize, and connect.</p>
+            <button class="btn-main" id="joinBtn" data-key="join_btn">Join the Network</button>
+        </section>
+
+        <section class="top-creator-banner">
+            </section>
+
+        </div>
+
+    <section class="catalog-section" id="catalogSection" style="display: none; padding: 50px 5%;">
+        <div class="catalog-header" style="text-align: center; margin-bottom: 40px;">
+            <h2 class="section-title">Global Creator Database</h2>
+            
+            <div class="search-wrap" style="margin: 20px auto; max-width: 500px;">
+                <input type="text" id="creatorSearch" placeholder="Search by name or niche..." 
+                       onkeyup="filterCreators()" 
+                       style="width: 100%; padding: 15px; border-radius: 30px; border: 1px solid #ddd;">
+            </div>
+
+            <div class="industry-filters" style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                <button class="filter-btn active" onclick="filterByCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterByCategory('Fashion')">Fashion</button>
+                <button class="filter-btn" onclick="filterByCategory('Lifestyle')">Lifestyle</button>
+                <button class="filter-btn" onclick="filterByCategory('Digital')">Digital</button>
+            </div>
+        </div>
+
+        <div class="creator-grid" id="creatorList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px;">
+            </div>
+    </section>
+</main>
     <main id="mainContent">
         <section class="hero">
             <h1 data-key="hero_title">Infrastructure for the <br><em>Creative Economy</em></h1>
@@ -46,7 +81,7 @@
             <span class="label">Top Creator of the Month</span>
             <h2 id="creator-name">Adriana Sarn</h2>
             <p id="creator-desc">Redefining the digital fashion era.</p>
-            <button class="btn-main" style="margin-top: 20px;">Follow Now</button>
+            <button class="btn-main" onclick="openModal('socialModal')" style="margin-top: 20px;">Follow Now</button>
         </div>
         
         <div class="banner-slider">
@@ -60,7 +95,27 @@
     </div>
 </section>
        <section class="catalog-section" id="catalogSection">
-    
+
+    <section class="catalog-section" id="catalogSection" style="display: none;">
+    <div class="catalog-header">
+        <h2 class="section-title">Global Creator Database</h2>
+        
+        <div class="search-container">
+            <input type="text" id="creatorSearch" placeholder="Search by name or niche..." onkeyup="filterCreators()">
+        </div>
+
+        <div class="industry-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all')">All</button>
+            <button class="filter-btn" onclick="filterByCategory('Fashion')">Fashion</button>
+            <button class="filter-btn" onclick="filterByCategory('Lifestyle')">Lifestyle</button>
+            <button class="filter-btn" onclick="filterByCategory('Digital')">Digital Art</button>
+            <button class="filter-btn" onclick="filterByCategory('Tech')">Tech</button>
+        </div>
+    </div>
+
+    <div class="creator-grid" id="creatorList">
+        </div>
+</section>
     <div class="catalog-subsection">
         <h2 class="section-title">Latest News</h2>
         <div class="news-grid">
@@ -140,5 +195,21 @@
     </div>
 
     <script src="script.js"></script>
+    <div id="socialModal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+        <span class="close" onclick="closeModal('socialModal')">&times;</span>
+        <h2 style="font-family: var(--font-serif); margin-bottom: 10px;">Connect with Adriana</h2>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 25px;">Choose your preferred platform</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <a href="https://www.instagram.com/adrianasarn" target="_blank" class="btn-main" style="text-decoration: none; background: #E1306C; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@adrianasarn" target="_blank" class="btn-main" style="text-decoration: none; background: #000000; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span>TikTok</span>
+            </a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

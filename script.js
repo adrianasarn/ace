@@ -16,18 +16,6 @@ const translations = {
 };
 
 
-const creators = [
-    { 
-        name: "Hayley Baylee", followers: "15M", img: "hayley.jpg", 
-        bio: "Hayley Kalil is a major force in the creator economy. Pivoted from modeling to viral comedy.",
-        whyPopular: "Viral for her high-fashion parodies and relatable DIY red carpet looks."
-    },
-    { 
-        name: "Adrianasarn", followers: "2M", img: "ada 3.jpeg", 
-        bio: "Digital architect and lifestyle visionary.",
-        whyPopular: "Known for her clean-girl aesthetic and design curation."
-    }
-];
 
 // --- Управление языком ---
 function changeLanguage(lang) {
@@ -217,3 +205,69 @@ function moveTrends(direction) {
 
     track.style.transform = `translateX(-${trendsPosition * cardWidth}px)`;
 }
+
+// 1. База данных с индустриями
+const creatorsData = [
+    { name: "Adriana Sarn", industry: "Fashion", followers: "2.1M", img: "ada 3.jpeg", bio: "Digital architect." },
+    { name: "Hayley Baylee", industry: "Lifestyle", followers: "15M", img: "hayley.jpg", bio: "Viral comedy queen." },
+    { name: "Alex Riv", industry: "Digital", followers: "800K", img: "nate.jpg", bio: "AI Visionary." },
+    { name: "Sasha Glow", industry: "Fashion", followers: "1.2M", img: "SWAG.jpg", bio: "High fashion model." }
+];
+
+let currentCategory = 'all';
+
+// 2. Функция переключения разделов
+function showCatalog(e) {
+    if (e) e.preventDefault(); // Отменяем переход по ссылке #
+    
+    document.getElementById('homeSection').style.display = 'none';
+    document.getElementById('catalogSection').style.display = 'block';
+    
+    // Сбрасываем фильтры и показываем всех
+    renderCreators(creatorsData);
+    window.scrollTo(0, 0);
+}
+
+// 3. Функция отрисовки карточек
+function renderCreators(data) {
+    const list = document.getElementById('creatorList');
+    list.innerHTML = data.map((item, index) => `
+        <div class="card" style="background:#fff; padding:20px; border-radius:25px; border:1px solid #eee;">
+            <div style="font-size:0.7rem; color:var(--accent); text-transform:uppercase;">${item.industry}</div>
+            <img src="${item.img}" style="width:100%; height:200px; object-fit:cover; border-radius:15px; margin:10px 0;">
+            <h3 style="font-family:var(--font-serif);">${item.name}</h3>
+            <p style="color:#888; font-size:0.8rem;">${item.followers} followers</p>
+            <button class="btn-main" onclick="openProfile(${index})" style="width:100%; margin-top:10px; padding:10px;">View Stats</button>
+        </div>
+    `).join('');
+}
+
+// 4. Поиск и Фильтр
+function filterCreators() {
+    const term = document.getElementById('creatorSearch').value.toLowerCase();
+    const filtered = creatorsData.filter(c => {
+        const matchesSearch = c.name.toLowerCase().includes(term);
+        const matchesCat = currentCategory === 'all' || c.industry === currentCategory;
+        return matchesSearch && matchesCat;
+    });
+    renderCreators(filtered);
+}
+
+function filterByCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText === cat || (cat === 'all' && btn.innerText === 'All'));
+    });
+    filterCreators();
+}
+
+// 5. ГЛАВНОЕ: Связываем твою кнопку из HTML с функцией
+document.addEventListener('DOMContentLoaded', () => {
+    const catalogLink = document.querySelector('[data-key="nav_catalog"]');
+    if (catalogLink) {
+        catalogLink.onclick = showCatalog;
+    }
+    
+    
+    
+});
